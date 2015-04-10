@@ -1,0 +1,1 @@
+var xls = require("xlsjs");

@@ -1,0 +1,14 @@
+{
+  "name": "materias-alcal",
+  "version": "1.0.0",
+  "description": "Parseo de XLS de materias",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xlsjs": "^0.7.5"
+  }
+}
