@@ -15,4 +15,6 @@ result =
       curso: workbook.SheetNames[anio]
       materias: _(materias).map("Materia").compact().value()
 
-require("fs").writeFile "output.json", JSON.stringify result
+writeJson = _.partial require("fs").writeFile, "output.json"
+
+[writeJson, console.log].forEach (write) -> write (JSON.stringify result)
