@@ -4,4 +4,10 @@ _ = require('lodash')
 xlsPath = process.argv[2]
 workbook = xls.readFile(xlsPath)
 
-console.log _.map(workbook.Sheets, xls.utils.sheet_to_json)
+data = _.map workbook.Sheets, xls.utils.sheet_to_json
+
+result =
+  profes: _(data).flatten().map("Profesor").uniq().reject(_.isUndefined).reject((it) -> it == "SIN PROFE").sort()
+  materiasPorAnio: _(data).map((materias, anio) -> curso: workbook.SheetNames[anio], materias: _(materias).map("Materia").compact().value())
+
+console.log _.mapValues result, (it) -> it.value()
